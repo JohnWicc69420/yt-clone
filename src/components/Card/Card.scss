@@ -1,0 +1,77 @@
+.cardContainer {
+  margin-bottom: 40px;
+    h1{
+        padding-top: 6px;
+    }
+    .images {
+      height: 100%;
+      position: relative;
+      height: fit-content;
+
+      img{
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .img1 {
+        visibility: visible;
+        z-index: 1;
+      }
+      .img2 {
+        visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      }
+
+      &:hover .img1{
+        visibility: hidden;
+      }
+
+      &:hover .img2{
+        visibility: visible;
+        z-index: 2;
+      }
+    }
+
+    .prices{
+        display: flex;
+        gap: 10px;
+        
+        .oldPrice{
+            color: rgba(195, 0, 0, 0.9);
+            text-decoration: line-through;
+        }
+    }
+
+    @media screen and (min-width: 320px){
+    .images {
+      img{
+        width: 180px;
+        height: 270px;
+        object-fit: cover;
+      }
+    }
+    }
+
+    @media screen and (min-width: 768px){
+      .images { 
+        img{
+          width: 200px;
+          height: 300px;
+          object-fit: cover;
+        }
+      }
+      }
+
+      @media screen and (min-width: 1024px){
+        .images {
+          img{
+            width: 230px;
+            height: 345px;
+            object-fit: cover;
+          }
+        }
+    }
+  }

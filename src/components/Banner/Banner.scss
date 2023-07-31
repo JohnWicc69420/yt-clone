@@ -1,0 +1,73 @@
+.bannerContainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #3171F9;
+    margin: 50px 0px 100px;
+
+    .left{
+        text-transform: uppercase;
+        color: white;
+        font-size: .8rem;
+        font-weight: 400;
+        letter-spacing: 0.02rem;
+    }
+
+    .center{
+        .input{
+            display: flex;
+            gap: 0px;
+            input{
+                padding: 7px;
+                border-radius: 7px 0px 0px 7px;
+            }
+            input[type="text"]:focus {
+                outline: none;
+            }
+
+            button{
+                text-transform: uppercase;
+                color: #ffffff;
+                background-color: #363438;
+                padding: 7px;
+                border-radius: 0px 7px 7px 0px;
+            }
+        }
+    }
+
+    .right{
+        display: flex;
+        gap: 10px;
+        color: #ffffff;
+        .icon{
+            cursor: pointer;
+        }
+    }
+
+    @media (max-width: 576px) {
+        padding: 15px 15px;
+        flex-direction: column;
+        .left, .center, .right{
+            padding: 8px 0px;
+        }
+    }
+
+    @media (min-width: 576px) and (max-width: 768px) {
+        flex-direction: column;
+        .left, .center, .right{
+            padding: 8px 0px;
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding: 12px 70px;
+    }
+
+    @media (min-width: 1024px) {
+        padding: 15px 150px;
+    }
+
+    @media (min-width: 1224px) {
+        padding: 15px 250px;
+    }
+}
