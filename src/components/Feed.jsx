@@ -1,9 +1,14 @@
-import React from 'react'
+import React from "react";
+import LeftNav from "./LeftNav";
 
 const Feed = () => {
   return (
-    <div>Feed</div>
-  )
-}
+    <>
+      <div className="flex h-full flex-col">
+        <LeftNav />
+      </div>
+    </>
+  );
+};
 
-export default Feed
+export default Feed;
