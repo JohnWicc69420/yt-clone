@@ -7,7 +7,6 @@ import SearchResult from './components/SearchResult';
 import VideoDetails from './components/VideoDetails';
 import { AppContext } from './context/contextAPI';
 
-
 const App = () => {
   return (
     <AppContext>

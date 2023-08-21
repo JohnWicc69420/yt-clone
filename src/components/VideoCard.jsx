@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const VideoCard = () => {
-  return (
-    <div>VideoCard</div>
-  )
-}
+const VideoCard = ({ video }) => {
+  return <div className="dark:text-white">{video?.title}</div>;
+};
 
-export default VideoCard
+export default VideoCard;

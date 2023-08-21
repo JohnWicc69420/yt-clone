@@ -19,7 +19,7 @@ const LeftNav = () => {
   return (
     <>
       <div
-        className={`h-full w-[240px] bg-[#0F0F0F] pt-10 pl-3 pr-3 
+        className={`h-full w-[240px] pt-10 pl-3 pr-3 
       absolute md:relative z-10 md:translate-x-0 transition-all ${
         mobileMenu ? "translate-x-[0px]" : "translate-x-[-240px]"
       } `}
