@@ -15,6 +15,7 @@ import Loader from "../shared/loader";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [openSearchBox, setOpenSearchBox] = useState(false);
 
   const { loading, mobileMenu, setMobileMenu } = useContext(Context);
 
@@ -22,7 +23,7 @@ const Header = () => {
 
   const searchQueryHandler = (event) => {
     if (
-      (event?.key === "Enter" || event === "searchButton ") &&
+      (event?.key === "Enter" || event === "searchButton") &&
       searchQuery.length > 0
     )
       navigate(`/searchResult/${searchQuery}`);
@@ -30,6 +31,10 @@ const Header = () => {
 
   const mobileMenuToggle = () => {
     setMobileMenu(!mobileMenu);
+  };
+
+  const handleOpenSearchBox = () => {
+    setOpenSearchBox(!openSearchBox);
   };
 
   const { pathname } = useLocation();
@@ -40,11 +45,11 @@ const Header = () => {
   return (
     <>
       <div
-        className="sticky top-0 z-10 flex flex-row items-center justify-between h-14 
+        className="sticky top-0 pt-3 z-10 flex flex-row items-center justify-between h-14 
     px-[16px] md:px-5 bg-white dark:bg-[#0F0F0F]"
       >
         {loading && <Loader />}
-        <div className=".left h-5 flex items-center">
+        <div className=".left h-5 flex items-center ">
           <div
             className="menu mr-4 md:hidden cursor-pointer h-10 w-10 flex 
           items-center justify-center rounded-full
@@ -64,14 +69,18 @@ const Header = () => {
           </Link>
         </div>
 
-        <div className="group flex items-center">
-          <div className="flex h-8 md:h-10 md:ml-10 md:pl-5 border border-[#303030] rounded-l-3xl group-focus-within:border-blue-500 md:group-focus-within:ml-5 md:group-focus-within:pl-0">
-            <div className="w-10 items-center justify-center hidden group-focus-within:md:flex">
+        <div className="group flex items-center ">
+          <div
+            className={`${
+              openSearchBox ? "flex rounded-r-3xl" : "hidden"
+            } md:flex h-10 ml-10 pl-5 border border-[#303030] rounded-l-3xl md:rounded-r-none group-focus-within:border-blue-500 group-focus-within:ml-5 group-focus-within:pl-0`}
+          >
+            <div className="w-10 items-center justify-center hidden group-focus-within:flex">
               <IoIosSearch className="text-white text-xl" />
             </div>
             <input
               type="text"
-              className="bg-transparent outline-none text-white pr-5 pl-5 md:pl-0 w-44 md:group-focus-within:pl-0 md:w-64 lg:w-[500px]"
+              className="bg-transparent outline-none text-white pr-5 pl-5 md:pl-0 w-44 group-focus-within:pl-0 md:w-64 lg:w-[500px]"
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyUp={searchQueryHandler}
               placeholder="Search"
@@ -79,14 +88,25 @@ const Header = () => {
             />
           </div>
           <button
-            className="w-[40px] md:w-[60px] h-8 md:h-10 flex items-center justify-center border border-l-0 border-[#303030] rounded-r-3xl bg-white/[0.1]"
+            className={`${
+              openSearchBox ? "flex" : "hidden"
+            } hidden w-[40px] md:w-[60px] h-10  md:flex items-center justify-center border border-l-0 border-[#303030] rounded-r-3xl bg-white/[0.1]`}
             onClick={() => searchQueryHandler("searchButton")}
           >
             <IoIosSearch className="text-white text-xl" />
           </button>
         </div>
 
-        <div className="flex items-center justify-between gap-6">
+        <div className="flex items-center justify-between gap-6 ">
+          <button
+            className="md:hidden flex items-center justify-center hover:bg-[#303030]/[0.6] h-10 w-10 rounded-full"
+            onClick={() => {
+              searchQueryHandler("searchButton");
+              handleOpenSearchBox();
+            }}
+          >
+            <IoIosSearch className="text-white text-xl" />
+          </button>
           <div className="hidden md:flex items-center gap-3">
             <div className="flex justify-center items-center cursor-pointer hover:bg-[#303030]/[0.6] h-10 w-10 rounded-full">
               <RiVideoAddLine className="text-white text-2xl" />

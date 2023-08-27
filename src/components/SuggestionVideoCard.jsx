@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const SuggestionVideoCard = () => {
-  return (
-    <div>SuggestionVideoCard</div>
-  )
-}
+  return <div>SuggestionVideoCard</div>;
+};
 
-export default SuggestionVideoCard
+export default SuggestionVideoCard;

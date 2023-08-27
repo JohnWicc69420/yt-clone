@@ -19,17 +19,17 @@ const LeftNav = () => {
   return (
     <>
       <div
-        className={`h-full w-[240px] pt-10 pl-3 pr-3 
-      absolute md:relative z-10 md:translate-x-0 transition-all ${
-        mobileMenu ? "translate-x-[0px]" : "translate-x-[-240px]"
-      } `}
+        className={`h-full w-[240px] translate-x-[-240px] pt-10 pl-3 pr-3 
+        absolute dark:bg-[#0F0F0F] md:relative z-10 md:translate-x-0 transition-all ${
+          mobileMenu ? "translate-x-[0px]" : ""
+        } `}
       >
         {categories.map((item) => {
           return (
             <React.Fragment key={item.name}>
               <div
                 className="flex items-center gap-5 text-white
-            hover:bg-[#303030]/[0.6] px-3 py-2 mb-2 rounded-[10px]"
+            hover:bg-[#303030]/[0.6] px-3 py-2 mb-2 rounded-[10px] cursor-pointer"
                 onClick={() => {
                   clickHandler(item.name, item.type);
                   navigate("/");
