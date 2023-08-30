@@ -45,7 +45,7 @@ const Header = () => {
   return (
     <>
       <div
-        className="sticky top-0 pt-3 z-10 flex flex-row items-center justify-between h-14 
+        className="sticky top-0 py-3 z-10 flex flex-row items-center justify-between h-14 
     px-[16px] md:px-5 bg-white dark:bg-[#0F0F0F]"
       >
         {loading && <Loader />}
@@ -65,22 +65,28 @@ const Header = () => {
 
           <Link to="/" className="h-5 flex items-center">
             <img className="h-full hidden dark:md:block" src={ytLogo} alt="" />
-            <img className="h-full md:hidden" src={ytLogoMobile} alt="" />
+            <img
+              className={`${
+                openSearchBox ? "hidden" : "flex"
+              } h-full md:hidden`}
+              src={ytLogoMobile}
+              alt=""
+            />
           </Link>
         </div>
 
         <div className="group flex items-center ">
           <div
             className={`${
-              openSearchBox ? "flex rounded-r-3xl" : "hidden"
-            } md:flex h-10 ml-10 pl-5 border border-[#303030] rounded-l-3xl md:rounded-r-none group-focus-within:border-blue-500 group-focus-within:ml-5 group-focus-within:pl-0`}
+              openSearchBox ? "flex rounded-r-3xl mr-2" : "hidden "
+            } md:flex h-10 md:marker:ml-10 md:pl-5 border mr-0 border-[#303030] rounded-l-3xl md:rounded-r-none group-focus-within:border-blue-500 group-focus-within:ml-5 group-focus-within:pl-0`}
           >
             <div className="w-10 items-center justify-center hidden group-focus-within:flex">
               <IoIosSearch className="text-white text-xl" />
             </div>
             <input
               type="text"
-              className="bg-transparent outline-none text-white pr-5 pl-5 md:pl-0 w-44 group-focus-within:pl-0 md:w-64 lg:w-[500px]"
+              className="bg-transparent outline-none text-white pr-5 pl-5 md:pl-0 md:pr-0 w-44 group-focus-within:pl-0 md:w-64 lg:w-[500px]"
               onChange={(e) => setSearchQuery(e.target.value)}
               onKeyUp={searchQueryHandler}
               placeholder="Search"

@@ -15,8 +15,8 @@ const Feed = () => {
     <>
       <div className="h-[calc(100%-56px)] flex flex-row dark:bg-[#0F0F0F]">
         <LeftNav />
-        <div className="grow overflow-y-auto w-[calc(100%-240px)] h-full pt-5 ">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-5">
+        <div className="grow overflow-y-auto w-[calc(100%-240px)] h-full">
+          <div className="grow grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4 p-0 sm:p-4">
             {!loading &&
               searchResults?.map((item) => {
                 if (item.type !== "video") return false;

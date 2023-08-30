@@ -4,22 +4,25 @@ import { Context } from "../context/contextAPI";
 import { useNavigate } from "react-router-dom";
 
 const LeftNav = () => {
-  const { mobileMenu, selectedCategory, setSelectedCategory } =
-    useContext(Context);
+  const { mobileMenu, setSelectedCategory } = useContext(Context);
 
   const navigate = useNavigate();
 
-  const clickHandler = (name, type) =>
-    type === "category" || type === "home"
-      ? setSelectedCategory(name)
-      : type === "menu"
-      ? false
-      : undefined;
+  const clickHandler = (name, type) => {
+    switch (type) {
+      case "category":
+        return setSelectedCategory(name);
+      case "menu":
+        return false;
+      default:
+        break;
+    }
+  };
 
   return (
     <>
       <div
-        className={`h-full w-[240px] translate-x-[-240px] pt-10 pl-3 pr-3 
+        className={`h-full w-[240px] translate-x-[-240px] pt-3 px-3
         absolute dark:bg-[#0F0F0F] md:relative z-10 md:translate-x-0 transition-all ${
           mobileMenu ? "translate-x-[0px]" : ""
         } `}

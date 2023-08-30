@@ -9,7 +9,7 @@ const VideoCard = ({ video }) => {
   return (
     <>
       <Link to={`/video/${video?.videoId}`}>
-        <div className="cursor-pointer">
+        <div className="cursor-pointer w-full h-full">
           <div className="relative sm:h-fit sm:w-fit ">
             <img
               className=" w-full h-full object-cover sm:rounded-xl"
@@ -23,7 +23,7 @@ const VideoCard = ({ video }) => {
             </div>
           </div>
 
-          <div className=" flex flex-row mt-3">
+          <div className=" flex flex-row px-3 pt-3">
             <div className="flex items-start">
               <div className="avatar flex h-9 w-9 mr-3 overflow-hidden">
                 <img
@@ -34,7 +34,9 @@ const VideoCard = ({ video }) => {
               </div>
             </div>
             <div className="info flex flex-col">
-              <span className="title text-white mb-2">{video?.title}</span>
+              <span className="title text-white mb-2 line-clamp-2">
+                {video?.title}
+              </span>
               <span className="channleName text-white/[0.5] text-sm flex items-center">
                 {video?.author?.title}
                 {video?.author?.badges[0]?.type === "VERIFIED_CHANNEL" && (
