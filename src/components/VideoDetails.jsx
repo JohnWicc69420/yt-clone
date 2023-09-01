@@ -9,6 +9,7 @@ import LeftNav from "./LeftNav";
 import { fetchDataFromApi } from "../utils/api";
 import { Context } from "../context/contextAPI";
 import SuggestionVideoCard from "./SuggestionVideoCard";
+import Scrollbars from "react-custom-scrollbars-2";
 
 const VideoDetails = () => {
   const [video, setVideo] = useState();
@@ -39,7 +40,7 @@ const VideoDetails = () => {
   }, [id, setLoading]);
 
   return (
-    <div className="flex w-full justify-center flex-row h-[calc(100%-56px)] bg-[#0F0F0F]">
+    <div className="flex w-full h-[calc(100%-56px)] justify-center flex-row bg-[#0F0F0F]">
       <div className="md:hidden">
         <LeftNav />
       </div>
@@ -101,7 +102,8 @@ const VideoDetails = () => {
             </div>
           </div>
         </div>
-        <div className="grow flex flex-col pb-6 px-4 lg:w-[450px] xl:w-[500px]">
+
+        <div className="grow flex overflow-y-auto  flex-col pb-6 px-4 lg:w-[450px] xl:w-[500px]">
           {relatedVideos?.contents?.map((item, index) => {
             if (item?.type !== "video") return false;
             return <SuggestionVideoCard key={index} video={item?.video} />;
