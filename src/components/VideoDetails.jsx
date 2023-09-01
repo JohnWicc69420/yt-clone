@@ -43,9 +43,9 @@ const VideoDetails = () => {
       <div className="md:hidden">
         <LeftNav />
       </div>
-      <div className="w-full z-5 h-full max-w-[1280px] flex flex-col lg:flex-row grow pt-4">
+      <div className="w-full z-5 h-full max-w-[1600px] flex flex-col lg:flex-row grow pt-4">
         <div className="flex h-full flex-col lg:w-[calc(100%-250px)] xl:w-[calc(100%-300px)] px-4 pb-6 lg:pb-6">
-          <div className="h-[250px] md:h-[400px] lg:h-[550px] xl:h-[650px] ml-[-16px] lg:ml-0 mr-[-16px] lg:mr-0">
+          <div className="h-[250px] md:h-[450px] lg:h-[550px] xl:h-[650px] ml-[-16px] lg:ml-0 mr-[-16px] lg:mr-0">
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${id}`}
               controls
