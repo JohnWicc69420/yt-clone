@@ -9,7 +9,6 @@ import LeftNav from "./LeftNav";
 import { fetchDataFromApi } from "../utils/api";
 import { Context } from "../context/contextAPI";
 import SuggestionVideoCard from "./SuggestionVideoCard";
-import Scrollbars from "react-custom-scrollbars-2";
 
 const VideoDetails = () => {
   const [video, setVideo] = useState();
