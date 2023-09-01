@@ -5,7 +5,7 @@ import abbreviate from "number-abbreviate";
 
 import VideoLength from "../shared/videoLength";
 
-const VideoCard = ({ video }) => {
+const SearchResultVideoCard = ({ video }) => {
   return (
     <>
       <Link to={`/video/${video?.videoId}`}>
@@ -70,4 +70,4 @@ const VideoCard = ({ video }) => {
   );
 };
 
-export default VideoCard;
+export default SearchResultVideoCard;
