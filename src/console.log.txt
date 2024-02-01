@@ -1,1 +1,0 @@
-u need to console.log everything 
